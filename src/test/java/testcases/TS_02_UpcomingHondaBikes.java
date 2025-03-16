@@ -105,9 +105,12 @@ public class TS_02_UpcomingHondaBikes extends BaseClass{
 			if(bikePrice_[1].contains(".")) {
 				bikePriceD = Double.parseDouble(bikePrice_[1]);
 			}
-			else {
+			else if(bikePrice_[1].contains(",")){
 				String a = bikePrice_[1].replace(",", "");
 				bikePriceI = Integer.parseInt(a);
+			}
+			else {
+				//written this block to handle strings like "Price To Be Announced"
 			}
 			
 			if(bikePriceD<4.0) {

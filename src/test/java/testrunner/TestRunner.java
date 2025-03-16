@@ -7,10 +7,10 @@ import io.cucumber.junit.CucumberOptions;
  
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"C:\\Users\\2303652\\eclipse-workspace\\Hackathon-Zigwheels-Project\\Features\\A_ZigWheels.feature",
-				"C:\\Users\\2303652\\eclipse-workspace\\Hackathon-Zigwheels-Project\\Features\\B_UpcomingBikes.feature",
-				"C:\\Users\\2303652\\eclipse-workspace\\Hackathon-Zigwheels-Project\\Features\\C_UsedCarModels.feature",
-				"C:\\Users\\2303652\\eclipse-workspace\\Hackathon-Zigwheels-Project\\Features\\D_UserLogin.feature"
+		features= {"C:\\Users\\User\\eclipse-workspace\\Hackathon-Zigwheels-Project-2\\Features\\A_ZigWheels.feature",
+				"C:\\Users\\User\\eclipse-workspace\\Hackathon-Zigwheels-Project-2\\Features\\B_UpcomingBikes.feature",
+				"C:\\Users\\User\\eclipse-workspace\\Hackathon-Zigwheels-Project-2\\Features\\C_UsedCarModels.feature",
+				"C:\\Users\\User\\eclipse-workspace\\Hackathon-Zigwheels-Project-2\\Features\\D_UserLogin.feature"
 		},
 		glue="stepdefinations" ,
 		plugin= {"pretty", "html:c_reports/myreport.html", 

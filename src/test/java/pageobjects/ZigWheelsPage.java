@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,8 +24,8 @@ public class ZigWheelsPage extends BasePage{
 	}
 	
 	
-	@FindBy(xpath="//a[normalize-space()='New Bikes']")
-	WebElement drpdwnNewBikes;
+	@FindBy(xpath="//input[@name='bysearch']")
+	WebElement searchBox;
 	
 	@FindBy(xpath="//span[@onclick=\"goToUrl('/upcoming-bikes')\"]")
 	WebElement spanUpcomingBikes;
@@ -74,11 +75,15 @@ public class ZigWheelsPage extends BasePage{
 		return driver.getCurrentUrl();
 	}
 	
-	public void hoverNewBikes(WebDriver driver) {
+	public void hoverNewBikes(WebDriver driver) throws InterruptedException {
 		
-		Actions act = new Actions(driver);
+		/*Actions act = new Actions(driver);
 		act.moveToElement(drpdwnNewBikes);
-		act.perform();
+		act.perform();*/
+		searchBox.click();
+		searchBox.sendKeys("Upcoming Bikes");
+		Thread.sleep(10000);
+		searchBox.sendKeys(Keys.ENTER);
 	
 		
 	}

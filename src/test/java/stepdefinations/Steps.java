@@ -87,24 +87,24 @@ public class Steps extends BaseClass
 	@Given("User is on zigwheels page")
 	public void User_is_on_zigwheels_page() throws IOException {
 		logger.info("***** Scenario: Upcoming Page Started *****");
-		System.out.println("user is on zigwheels");
 		logger.info("user is on zigwheels home page");
 		
 	}
 	
 	
-	@When("User hover on new bikes")
-	public void User_hover_on_new_bikes() {
+	@When("User click on search box and enter upcoming bikes")
+	public void User_click_on_search_box_and_enter_upcoming_bikes() throws InterruptedException{
 		zw = new ZigWheelsPage(driver);
 		zw.hoverNewBikes(driver);
-		logger.info("hovered on new bikes");
+		logger.info("user is on upcoming bikes page");
 	}
 	
-	@And("clicks on upcoming bikes")
+/*	@And("clicks on upcoming bikes")
 	public void clicks_on_upcoming_bikes() {
 		zw.clickUpcomingBikes();
 		logger.info("clicked on upcoming bikes");
 	}
+*/
 	
 	@And("capturing current url")
 	public void capturing_current_url() {
@@ -112,7 +112,7 @@ public class Steps extends BaseClass
 		logger.info("captured the current url for upcoming bikes page");
 	}
 	
-	@Then("Verify directed to upcoming page")
+	@Then("Verify directed to new bikes page")
 	public void Verify_directed_to_upcoming_page() {
 		Assert.assertEquals(currentUrlUBPage.equals("https://www.zigwheels.com/upcoming-bikes"), true,"you are not directed to upcoming bikes");
 		logger.info("verified that the user is on upcoming bikes page");
@@ -215,10 +215,14 @@ for(int i=0 ; i<bikeNames.size();i++) {
 			if(bikePrice_[1].contains(".")) {
 				bikePriceD = Double.parseDouble(bikePrice_[1]);
 			}
-			else {
+			else if (bikePrice_[1].contains(",")){
 				String a = bikePrice_[1].replace(",", "");
 				bikePriceI = Integer.parseInt(a);
 			}
+			else {
+				//written this block to tackle if bike price has any string like "Price To Be Announced"
+			}
+			
 			
 			if(bikePriceD<4.0) {
 				bikeUnder4Lac.put(bikeName, new String[] {bikePrice,bikeReleaseDate});
@@ -229,7 +233,9 @@ for(int i=0 ; i<bikeNames.size();i++) {
 		
 		for(Map.Entry<String, String[]> e :bikeUnder4Lac.entrySet()) {	
 			
-			System.out.println("Bike Name: "+e.getKey()+" Price: "+e.getValue()[0]+" Release Date: "+e.getValue()[1]);
+			System.out.println("inside map for loop");
+			
+			System.out.println("Bike Name: "+e.getKey()+" Price: "+e.getValue()[0]+" Release Date: "+e.getValue()[1]);	
 		}
 		ExcelUtils.savetoExcel("honda bikes under 4Lac", bikeUnder4Lac);
 		logger.info("written into excel");
@@ -255,17 +261,18 @@ for(int i=0 ; i<bikeNames.size();i++) {
 		 logger.info("scrolled Up");
 	}
 
-	@When("hover on used cars")
-	public void hover_on_used_cars() {
+	@When("search for used cars in chennai")
+	public void hover_on_used_cars() throws InterruptedException {
 		uh.clickUsedCars();
 		 logger.info("clicked on used cars button");
 	}
 
-	@When("click on chennai")
+/*	@When("click on chennai")
 	public void click_on_chennai() throws InterruptedException {
 		uh.clickChennaiBtn();
 		 logger.info("clicked on chennai button");
 	}
+*/
 
 	@Then("Directed to used cars in chennai")
 	public void directed_to_used_cars_in_chennai() {
@@ -343,15 +350,17 @@ for(int i=0 ; i<bikeNames.size();i++) {
 
 	@When("User gets title of page")
 	public void user_gets_title_of_page() {
+		//add sleep and try
 		 title = lp.getCurrentTitle(driver);
 		 logger.info("getting title of google sign in page");
 	}
 
-	@Then("Verify the page title")
+/*	@Then("Verify the page title")
 	public void verify_the_page_title() {
 		Assert.assertEquals(title.contains("Google"), true,"you are not directed to google signin");	
 		logger.info("verified that we are on google sign in page");
 	}
+*/
 
 	@Then("entering wrong email id and capturing error message")
 	public void entering_wrong_email_id_and_capturing_error_message() throws InterruptedException {

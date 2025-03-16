@@ -13,7 +13,7 @@
  
     <classes>
 
-      <class name = "testcases.TS_01_ZigwheelsHomePage"/>
+	  <class name = "testcases.TS_01_ZigwheelsHomePage"/>
       <class name = "testcases.TS_02_UpcomingHondaBikes"/>
       <class name = "testcases.TS_03_UsedCarModels"/>
       <class name = "testcases.TS_04_UserLogin"/>

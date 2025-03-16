@@ -26,8 +26,8 @@ public class TS_03_UsedCarModels extends BaseClass{
 		logger.info("Scrolled Up");
 		uh.clickUsedCars();
 		logger.info("Hover on used cars");
-		uh.clickChennaiBtn();
-		logger.info("Clicked on chennai button");
+//		uh.clickChennaiBtn();
+//		logger.info("Clicked on chennai button");
 		String currentUrl = getUrl(driver);
 		logger.info("Captured current url");
 		Assert.assertEquals(currentUrl, "https://www.zigwheels.com/used-car/Chennai","you are not directed to used cars chennai page.");

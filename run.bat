@@ -1,2 +1,2 @@
-cd C:\Users\2303652\eclipse-workspace\Hackathon-Zigwheels-Project
+cd C:\Users\User\eclipse-workspace\Hackathon-Zigwheels-Project-2
 mvn test

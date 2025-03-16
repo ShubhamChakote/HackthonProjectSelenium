@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,11 +32,14 @@ public class UpcomingHondaBikesPage extends BasePage{
 	@FindBy(xpath="//div[contains(@title,'Ex-Showroom')]")
 	List<WebElement> listBikePrices;
 	
-	@FindBy(xpath="//div[contains(text(),'Launch Date')]")
+	@FindBy(xpath="//div[contains(text(),'Expected Launch')]")
 	List<WebElement> listBikeReleaseDates;
 	
-	@FindBy(xpath="//a[@href='/used-car']")
-	WebElement drpdwnUsedCars;
+//	@FindBy(xpath="//a[@href='/used-car']")
+//	WebElement drpdwnUsedCars;
+	
+	@FindBy(xpath="//input[@name='bysearch']")
+	WebElement searchBox;
 	
 	@FindBy(xpath="//span[normalize-space()='Chennai']")
 	WebElement btnChennai;
@@ -147,15 +151,20 @@ public void clickViewMoreBikes() throws InterruptedException {
 		
 	}
 	
-	public void clickUsedCars()  {
+	public void clickUsedCars() throws InterruptedException  {
 		
 		
 		
 	//	Thread.sleep(20);
 		
-		Actions act = new Actions(driver);
+//		Actions act = new Actions(driver);
+//		
+//		act.moveToElement(drpdwnUsedCars).perform();
 		
-		act.moveToElement(drpdwnUsedCars).perform();
+		searchBox.click();
+		searchBox.sendKeys("Used cars in chennai");
+		Thread.sleep(10000);
+		searchBox.sendKeys(Keys.ENTER);
 		
 		
 		
