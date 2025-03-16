@@ -3,12 +3,12 @@
 ### Problem Statement
 
  
-This Java Selenium project automates tasks on the zigwheel site, including navigation, searches, and information extraction. It utilizes TestNG and Cucumber for testing, Apache POI for handling Excel data, Extent Report for reporting, and logging for tracking script execution.
+This Java Selenium project automates tasks on the Zigwheels site, including navigation, searches, and information extraction. It utilizes TestNG and Cucumber for testing, Apache POI for handling Excel data, Extent Report for reporting, and logging for tracking script execution.
  
 ### Detailed Description
-1. The project will scrape data from a legitimate site (suggested site: zigwheels.com) to display upcoming bikes meeting the criteria mentioned above.
-2. Additionally, the project will extract popular used car models in Chennai and display them in a list.
-3. A login feature will be implemented with Google, using invalid account details to capture and display the error message.
+1. Data Scraping: Extracted popular used car models in Chennai and upcoming Honda bikes, storing the data in an Excel file using Apache POI
+2. Custom Price Filter: Developed a function to filter Honda bikes under ₹4 lakh, as this filter was not available on the Zigwheels website
+3. Login Automation: Implements a Google login feature using invalid credentials to capture and validate error messages
  
 ### Key Automation Scope
 1. Handling windows 
